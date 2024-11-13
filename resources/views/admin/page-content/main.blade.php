@@ -55,14 +55,18 @@
                                 <label class="form-check-label" for="show_cover_img">Show cover image</label>
                             </div>
                         </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label small">Content</label>
+                            <textarea class="form-control" id="editor" name="content" rows="10">{{ isset($data->content) ? $data->content : '' }}</textarea>
+                        </div>
                     @endif
 
-                    <div class="col-md-12 mb-3">
-                        <label class="form-label small">Content</label>
-                        <textarea class="form-control" id="editor" name="content" rows="10">{{ isset($data->content) ? $data->content : '' }}</textarea>
-                    </div>
-
                     @if ($type == 'contact-us')
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label small">Content</label>
+                            <textarea class="form-control" id="editor" name="content" rows="10">{{ isset($data->content) ? $data->content : '' }}</textarea>
+                        </div>
                         <div class="col-md-12 mb-3">
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch" name="show_content"
@@ -80,7 +84,12 @@
                             </div>
                         </div>
                     @endif
-
+                    @if ($type == 'privacy-policy' || $type == 'terms-of-service')
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label small">Content</label>
+                            <textarea class="form-control" id="editor" name="content" rows="10">{{ isset($data->content) ? $data->content : '' }}</textarea>
+                        </div>
+                    @endif
                     <div class="col-md-12 mt-3">
                         <button type="submit" class="btn btn-primary">Save</button>
                     </div>

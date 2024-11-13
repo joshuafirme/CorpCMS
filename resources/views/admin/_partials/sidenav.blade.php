@@ -40,6 +40,8 @@
                     <nav class="sidenav-menu-nested nav">
                         <a class="nav-link" href="{{ url("admin/page-content/about-us") }}">About us</a>
                         <a class="nav-link" href="{{ url('admin/page-content/contact-us') }}">Contact us</a>
+                        <a class="nav-link" href="{{ url('admin/page-content/privacy-policy') }}">Privacy policy</a>
+                        <a class="nav-link" href="{{ url('admin/page-content/terms-of-service') }}">Terms of service</a>
                     </nav>
                 </div>
 

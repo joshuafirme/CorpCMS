@@ -34,21 +34,18 @@
                 <div class="col-lg-9">
                     <div class="row gx-5">
                         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                            <div class="text-uppercase-expanded text-xs mb-4">Product</div>
+                            <div class="text-uppercase-expanded text-xs mb-4">Quick links</div>
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><a href="#!">Landing</a></li>
-                                <li class="mb-2"><a href="#!">Pages</a></li>
-                                <li class="mb-2"><a href="#!">Sections</a></li>
-                                <li class="mb-2"><a href="#!">Documentation</a></li>
-                                <li><a href="#!">Changelog</a></li>
+                                <li class="mb-2"><a href="{{ url('news') }}">News</a></li>
+                                <li class="mb-2"><a href="{{ url('about-us') }}">About us</a></li>
+                                <li class="mb-2"><a href="{{ url('contact-us') }}">Contact us</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-3 col-md-6">
                             <div class="text-uppercase-expanded text-xs mb-4">Legal</div>
                             <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><a href="/privacy-policy">Privacy Policy</a></li>
-                                <li class="mb-2"><a href="/terms-and-conditions">Terms and Conditions</a></li>
-                                <li><a href="#!">License</a></li>
+                                <li class="mb-2"><a href="{{ url('privacy-policy') }}">Privacy Policy</a></li>
+                                <li class="mb-2"><a href="{{ url('terms-of-service') }}">Terms of Service</a></li>
                             </ul>
                         </div>
                     </div>

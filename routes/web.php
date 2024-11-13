@@ -61,6 +61,8 @@ Route::get('news/{slug}', [PageController::class, 'newsInfo']);
 Route::get('contact-us', [PageController::class, 'contact']);
 Route::post('contact-us', [PageController::class, 'sendMessage']);
 Route::get('about-us', [PageController::class, 'about']);
+Route::get('privacy-policy', [PageController::class, 'privacyPolicy']);
+Route::get('terms-of-service', [PageController::class, 'termsOfService']);
 
 Route::get('login', [UserController::class, 'login'])->name('login');
 

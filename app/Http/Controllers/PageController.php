@@ -74,4 +74,16 @@ class PageController extends Controller
         $data = readPageContent('about-us');
         return view('app.about', compact('data'));
     }
+
+    public function privacyPolicy()
+    {
+        $data = readPageContent('privacy-policy');
+        return view('app.privacy-policy', compact('data'));
+    }    
+    
+    public function termsOfService()
+    {
+        $data = readPageContent('terms-of-service');
+        return view('app.terms-of-service', compact('data'));
+    } 
 }
