@@ -1,0 +1,385 @@
+.iphone-frame {
+  position: relative;
+  width: 230px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 40px;
+  border: 16px solid #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Minimal shadow for realism */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iphone-frame::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  width: 60px;
+  height: 5px;
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+.iphone-frame::after {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+
+
+
+
+.textarea-container {
+  position: relative;
+  width: 100%;
+  display: inline-block;
+}
+
+textarea {
+  /* Add padding at the bottom for the emoji button */
+  box-sizing: border-box;
+  /* Ensures padding is included in the textarea's width and height */
+  resize: none;
+  /* Disable resizing if necessary */
+}
+
+
+.emoji-picker {
+  position: absolute;
+  z-index: 1 !important;
+  left: 50px;
+  bottom: 10px; 
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+
+
+/* TIKTOK CONTENT -------------------------------*/
+
+/* Top Navigation */
+.top-nav {
+  top: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #000;
+  z-index: 10;
+}
+
+.nav-item {
+  border: none;
+  background: transparent;
+  color: gray;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.nav-item.active {
+  color: white;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+}
+
+/* Main Container */
+.tiktok-video-container {
+  background-color: #000;
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 100px);
+  /* Full height minus top and bottom navs */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Video Placeholder */
+.video-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+  font-size: 18px;
+}
+
+/* Overlay for details and controls */
+.tiktok-overlay {
+  position: absolute;
+  bottom: 45px;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/* Video Details Section */
+.tiktok-details {
+  margin-left: 10px;
+  display: flex;
+  color: #fff !important;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.username {
+  color: #fff !important;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.music-info {
+  display: flex;
+  align-items: center;
+}
+
+.music-info i {
+  font-size: 18px;
+}
+
+/* Right-side Interaction Buttons */
+.tiktok-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.profile-pic img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.btn-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.btn-action span {
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+/* Music Disc Icon */
+.music-disc {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 5s linear infinite;
+  margin-top: 10px;
+}
+
+.music-disc img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 10;
+}
+
+.nav-btn {
+  color: white;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn .bi {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+}
+
+.plus-btn {
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  font-size: 2rem;
+  padding: 5px;
+}
+
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  }
+
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.song-title {
+  display: inline-block;
+  white-space: nowrap;
+  /* Prevent line breaks */
+  animation: scroll-title 10s linear infinite;
+  /* Infinite scrolling animation */
+  margin-left: 5px;
+  font-size: 14px;
+  color: white;
+  overflow: hidden;
+  /* Hide overflow */
+}
+
+/* Keyframes for scrolling effect */
+@keyframes scroll-title {
+  0% {
+      transform: translateX(100%);
+      /* Start off the right edge */
+  }
+
+  100% {
+      transform: translateX(-100%);
+      /* Move to the left edge */
+  }
+}
+
+/*!
+ * html5-device-mockups (https://github.com/pixelsign/html5-device-mockups)
+ * Copyright 2013 - 2018 pixelsign
+ * Licensed under MIT (https://github.com/pixelsign/html5-device-mockups/blob/master/LICENSE.txt)
+ * Last Build: Thu Dec 20 2018 14:05:50
+ */
+ .device-wrapper {
+  max-width: 300px;
+  width: 100%;
+}
+
+.device {
+  position: relative;
+  background-size: cover;
+}
+
+.device::after {
+  position: absolute;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.device .screen {
+  position: absolute;
+  background-size: cover;
+  pointer-events: auto;
+}
+
+.device .button {
+  position: absolute;
+  cursor: pointer;
+}
+
+.device[data-device=iPhoneX][data-orientation=portrait][data-color=black] {
+  padding-bottom: 198.89807163%;
+  background-image: url("/assets/img/iPhoneX/portrait.png");
+  z-index: initial;
+}
+
+.device[data-device=iPhoneX][data-orientation=portrait][data-color=black] .screen {
+  top: 3.254847645%;
+  left: 7.162534435%;
+  width: 85.67493113%;
+  height: 93.49030471%;
+  border: 0px;
+  z-index: 0;
+}
+
+.device[data-device=iPhoneX][data-orientation=landscape][data-color=black] {
+  padding-bottom: 50.27700831%;
+  background-image: url("/assets/img/device-mockups/iPhoneX/landscape.png");
+  z-index: initial;
+}
+
+.device[data-device=iPhoneX][data-orientation=landscape][data-color=black] .screen {
+  top: 7.162534435%;
+  left: 3.254847645%;
+  width: 93.49030471%;
+  height: 85.67493113%;
+  border: 0px;
+  z-index: 0;
+}
+
+.device[data-device=iPhoneX][data-orientation=portrait][data-color=black] {
+  padding-bottom: 198.898071625%;
+}
+
+.device[data-device=iPhoneX][data-orientation=portrait][data-color=black] .screen {
+  top: 3.1855955679%;
+  left: 6.8870523416%;
+  width: 86.2258953168%;
+  height: 93.6288088643%;
+}
+
+.device[data-device=iPhoneX][data-orientation=portrait][data-color=black]::after {
+  content: "";
+  background-image: url("/assets/img/iPhoneX/portrait.png");
+}
+
+.device[data-device=iPhoneX][data-orientation=portrait][data-color=black] .button {
+  display: none;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+.device[data-device=iPhoneX][data-orientation=landscape][data-color=black] {
+  padding-bottom: 50.2770083102%;
+}
+
+.device[data-device=iPhoneX][data-orientation=landscape][data-color=black] .screen {
+  top: 6.3360881543%;
+  left: 3.4626038781%;
+  width: 93.0747922438%;
+  height: 87.3278236915%;
+}
+
+.device[data-device=iPhoneX][data-orientation=landscape][data-color=black]::after {
+  content: "";
+  background-image: url("/assets/img/device-mockups/iPhoneX/landscape_black.png");
+}
+
+.device[data-device=iPhoneX][data-orientation=landscape][data-color=black] .button {
+  display: none;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
