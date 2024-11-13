@@ -128,6 +128,9 @@
     .active {
         color: {{ $primary_color }} !important;
     }
+    .nav-link:hover {
+        color: {{ $primary_color }} !important;
+    }
 
     .custom-file-label.bg-primary {
         background-color: {{ $primary_color }} !important;

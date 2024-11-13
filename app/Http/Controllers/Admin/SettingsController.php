@@ -33,18 +33,28 @@ class SettingsController extends Controller
             $data = json_decode($data, true);
         }
 
-        if ($request->app_name) {
-            $data['app_name'] = $request->app_name;
-        }
-        if ($request->primary_color) {
-            $data['primary_color'] = $request->primary_color;
-        }
-        if ($request->secondary_color) {
-            $data['secondary_color'] = $request->secondary_color;
-        }
+
         if ($request->logo) {
             $data['logo'] = Utils::uploadFile($request->logo, 'uploads/settings/');
         }
+
+        $data['app_name'] = $request->app_name ? $request->app_name : '';
+
+        $data['primary_color'] = $request->primary_color ? $request->primary_color : '';
+
+        $data['secondary_color'] = $request->secondary_color ? $request->secondary_color : '';
+
+        $data['meta_description'] = $request->meta_description ? $request->meta_description : '';
+        
+        $data['facebook'] = $request->facebook ? $request->facebook : '';
+
+        $data['instagram'] = $request->instagram ? $request->instagram : '';
+
+        $data['linkedin'] = $request->linkedin ? $request->linkedin : '';
+
+        $data['twitter'] = $request->twitter ? $request->twitter : '';
+
+        $data['tiktok'] = $request->tiktok ? $request->tiktok : '';
 
         Storage::put($this->path, json_encode($data));
 
