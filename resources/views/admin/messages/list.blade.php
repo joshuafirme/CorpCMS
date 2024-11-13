@@ -45,12 +45,6 @@
                                     <td class="wrap">
                                         <div>{{ $item->message }}</div>
                                     </td>
-                                    <td>
-                                        @if ($item->image)
-                                            <a target="_blank" href="{{ url($item->image) }}"><img
-                                                    src="{{ asset($item->image) }}" width="150px" alt=""></a>
-                                        @endif
-                                    </td>
                                     <td>{{ $item->created_at }}</td>
                                 </tr>
                             @endforeach

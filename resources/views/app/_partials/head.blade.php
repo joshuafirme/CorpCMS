@@ -50,4 +50,6 @@
 
     @yield('styles')
 
+    @include('app._partials._theme')
+
 </head>
