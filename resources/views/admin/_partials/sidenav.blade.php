@@ -8,12 +8,12 @@
                 <!-- Sidenav Menu Heading (Core)-->
                 <div class="sidenav-menu-heading">Core</div>
                 <!-- Sidenav Accordion (Dashboard)-->
-                @if (in_array('dashboard', $permissions))
+                {{-- @if (in_array('dashboard', $permissions))
                     <a class="nav-link" href="{{ url('admin/dashboard') }}">
                         <div class="nav-link-icon"><i data-feather="activity"></i></div>
                         Dashboard
                     </a>
-                @endif
+                @endif --}}
 
                 <a class="nav-link" href="{{ url('admin/news') }}">
                     <div class="nav-link-icon"><i class="fa-regular fa-newspaper"></i></div>
