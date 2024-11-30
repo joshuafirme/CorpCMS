@@ -1,15 +1,18 @@
+@php
+    $settings = settings();
+@endphp
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>@yield('title', settings()->app_name)</title>
+    <title>@yield('title', $settings->app_name)</title>
     <meta
-        content="Discover Maki, the ultimate platform connecting you with trusted service providers for home repairs, beauty, automotive needs, and more. Book reliable professionals near you, schedule services, and manage everything effortlessly."
+        content={{ $settings->meta_description }}
         name="description">
     <meta
-        content="service providers, book services, home repairs, beauty services, automotive services, trusted professionals, local services, schedule services, Maki app, find providers near me, on-demand services, e-wallet payments, real-time notifications, affiliate commissions"
+        content="{{ $settings->app_name }}, Party-list, Latest news, News, About us, Contact us"
         name="keywords">
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png') }}">
@@ -24,12 +27,12 @@
         {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "Maki",
+            "name": {{ $settings->app_name }},
             "url": "https://www.Maki.com",
-            "description": "Discover Maki, the ultimate platform connecting you with trusted service providers for home repairs, beauty, automotive needs, and more. Book reliable professionals near you, schedule services, and manage everything effortlessly.",
+            "description": {{ $settings->meta_description }},
             "publisher": {
               "@type": "Organization",
-              "name": "Maki",
+              "name": {{ $settings->app_name }},
               "url": "https://www.Maki.com",
             },
         }
