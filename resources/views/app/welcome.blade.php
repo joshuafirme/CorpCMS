@@ -111,7 +111,7 @@
                 rewind: true,
                 pagination: true, // Enable pagination
                 arrows: false,
-                autoplay: true,
+                autoplay: false,
                 interval: 3000,
                 speed: 1000,
             });

@@ -20,7 +20,7 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        $data['user_id'] = $request->user()->id;
+       // $data['user_id'] = $request->user()->id;
 
         if ($request->image) {
             $data['image'] = Utils::uploadFile($request->image, 'uploads/img/sliders/');
@@ -34,7 +34,7 @@ class SliderController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->except(['_token']);
-        $data['user_id'] = $request->user()->id;
+       // $data['user_id'] = $request->user()->id;
 
         if ($request->image) {
             $data['image'] = Utils::uploadFile($request->image, 'uploads/img/sliders/');
