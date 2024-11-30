@@ -21,17 +21,32 @@
             <h2 class="text-center mb-5 text-primary">Latest News</h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 @foreach ($news as $item)
-                <div class="col">
-                    <div class="card h-100 shadow-sm">
-                        <img src="{{ $item->image }}" style="object-fit: cover; height: 300px;" class="card-img-top" alt="News Image">
-                        <div class="card-body">
-                            <h3 class="card-title mt-0"><a href="{{ url("news/$item->slug") }}">{{ $item->title }}</a></h3>
-                            <p class="text-muted mb-2"><small>Published on: {{ Utils::formatDate($item->date_published) }}</small></p>
-                            <div class="lh-lg">{!! strlen($item->content) > 200 ? substr($item->content, 0, 199) . '...' : $item->content !!}</div>
-                            <a href="{{ url("news/$item->slug") }}" class="btn btn-primary">Read More</a>
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            @if ($item->image)
+                                @php
+                                    $mime = mime_content_type($item->image);
+                                @endphp
+                                @if (str_contains($mime, 'video/'))
+                                    <video class="card-img-top" width="100%" height="300px" controls>
+                                        <source src="{{ asset($item->image) }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                @else
+                                <img src="{{ $item->image }}" style="object-fit: cover; height: 300px;" class="card-img-top"
+                                    alt="News Image">
+                                @endif
+                            @endif
+                            <div class="card-body">
+                                <h3 class="card-title mt-0"><a href="{{ url("news/$item->slug") }}">{{ $item->title }}</a>
+                                </h3>
+                                <p class="text-muted mb-2"><small>Published on:
+                                        {{ Utils::formatDate($item->date_published) }}</small></p>
+                                <div class="lh-lg">{!! strlen($item->content) > 200 ? substr($item->content, 0, 199) . '...' : $item->content !!}</div>
+                                <a href="{{ url("news/$item->slug") }}" class="btn btn-primary">Read More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -96,7 +111,9 @@
                 rewind: true,
                 pagination: true, // Enable pagination
                 arrows: false,
-                autoplay: true
+                autoplay: true,
+                interval: 3000,
+                speed: 1000,
             });
             splide.mount();
         })

@@ -1,23 +1,38 @@
 @extends('app._partials.app')
 
 @section('content')
-
     <section class="bg-white py-5">
         <div class="container py-5">
             <h2 class="text-center mb-5 text-primary">Latest News</h2>
             <div class="row  g-4">
                 @foreach ($news as $item)
-                <div class="col-12">
-                    <div class="card h-100 shadow-sm">
-                        <img src="{{ asset($item->image) }}" style="object-fit: cover; height: 600px;" class="card-img-top" alt="News Image">
-                        <div class="card-body">
-                            <h3 class="card-title mt-0"><a href="{{ url("news/$item->slug") }}">{{ $item->title }}</a></h3>
-                            <p class="text-muted mb-2"><small>Published on {{ Utils::formatDate($item->date_published) }}</small></p>
-                            <div class="lh-lg">{!! strlen($item->content) > 200 ? substr($item->content, 0, 199) . '...' : $item->content !!}</div>
-                            <a href="{{ url("news/$item->slug") }}" class="btn btn-primary">Read More</a>
+                    <div class="col-12">
+                        <div class="card h-100 shadow-sm">
+                            @if ($item->image)
+                                @php
+                                    $mime = mime_content_type($item->image);
+                                @endphp
+                                @if (str_contains($mime, 'video/'))
+                                    <video width="100%" height="600px" controls>
+                                        <source src="{{ asset($item->image) }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                @else
+                                    <img src="{{ asset($item->image) }}" style="object-fit: cover; height: 600px;"
+                                        class="card-img-top" alt="News Image">
+                                @endif
+                            @endif
+
+                            <div class="card-body">
+                                <h3 class="card-title mt-0"><a href="{{ url("news/$item->slug") }}">{{ $item->title }}</a>
+                                </h3>
+                                <p class="text-muted mb-2"><small>Published on
+                                        {{ Utils::formatDate($item->date_published) }}</small></p>
+                                <div class="lh-lg">{!! strlen($item->content) > 200 ? substr($item->content, 0, 199) . '...' : $item->content !!}</div>
+                                <a href="{{ url("news/$item->slug") }}" class="btn btn-primary">Read More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>

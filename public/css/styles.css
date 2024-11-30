@@ -19350,3 +19350,7 @@ h2, h5, h6 {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
 }
+
+video {
+  background: #000;
+}

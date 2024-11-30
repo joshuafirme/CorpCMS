@@ -36,7 +36,7 @@
 
     .btn-primary:hover {
         background-color: #0056b3 !important;
-        border-color: #004085 !important;
+        border-color: {{ $primary_color }} !important;
     }
 
     .btn-secondary:hover {
@@ -62,11 +62,15 @@
     }
 
     .nav-link.text-primary:hover {
-        color: #004085 !important;
+        color: {{ $primary_color }} !important;
     }
 
     .nav-link.text-secondary:hover {
-        color: #4a5459 !important;
+        color: {{ $secondary_color }} !important;
+    }
+    
+    .nav-link-icon {
+        color: #{{ $secondary_color }} !important;
     }
 
     /* Alert Colors */
@@ -193,11 +197,11 @@
     }
 
     .dropdown-item.text-primary:hover {
-        color: #004085 !important;
+        color: {{ $primary_color }} !important;
     }
 
     .dropdown-item.text-secondary:hover {
-        color: #4a5459 !important;
+        color: {{ $secondary_color }} !important;
     }
 
     /* Accordion and Collapse */
@@ -252,10 +256,10 @@
     }
 
     a.text-primary:hover {
-        color: #004085 !important;
+        color: {{ $primary_color }} !important;
     }
 
     a.text-secondary:hover {
-        color: #4a5459 !important;
+        color: {{ $secondary_color }} !important;
     }
 </style>

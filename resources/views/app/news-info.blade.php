@@ -6,8 +6,19 @@
             <h1 class="mb-0 pb-0 text-primary">{{ $news->title }}</h1>
             <p class="text-muted mb-2"><small>Published on {{ Utils::formatDate($news->date_published) }}</small></p>
 
-            <img src="{{ asset($news->image) }}" style="object-fit: cover; height: 600px;" class="card-img-top mt-3 mb-3" alt="News Image">
-            
+            @php
+                $mime = mime_content_type($news->image);
+            @endphp
+            @if (str_contains($mime, 'video/'))
+                <video class="card-img-top" width="100%" height="100%" controls>
+                    <source src="{{ asset($news->image) }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            @else
+                <img src="{{ asset($news->image) }}" style="object-fit: cover; height: 600px;" class="card-img-top mt-3 mb-3"
+                    alt="News Image">
+            @endif
+
             <div class="lh-lg">{!! $news->content !!}</div>
         </div>
     </section>

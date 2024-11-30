@@ -20,8 +20,8 @@
                     <textarea id="editor" name="content"></textarea>
                 </div>
                 <div class="col-12 mb-3">
-                    <label for="formFile" class="form-label">Image</label>
-                    <input class="form-control file-upload" name="image" type="file" id="formFile" accept="image/png, image/gif, image/jpeg">
+                    <label for="formFile" class="form-label">Media</label>
+                    <input class="form-control file-upload" name="image" type="file" id="formFile" accept="image/png, image/gif, image/jpeg, video/mp4, video/mov, video/webm">
                     <div class="overflow-auto img-container mt-2">
                         <img width="100%" class="img-preview" id="image" style="max-width: 250px; object-fit: cover;" />
                     </div>

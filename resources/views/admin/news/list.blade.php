@@ -36,7 +36,7 @@
                         <tr>
                             <th>Title</th>
                             <th>Meta Description</th>
-                            <th>Image</th>
+                            <th>Media</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -50,8 +50,18 @@
                                     </td>
                                     <td>
                                         @if ($item->image)
-                                            <a target="_blank" href="{{ url($item->image) }}"><img
-                                                    src="{{ asset($item->image) }}" width="150px" alt=""></a>
+                                            @php
+                                                $mime = mime_content_type($item->image);
+                                            @endphp
+                                            @if (str_contains($mime, 'video/'))
+                                                <video width="220" height="140" controls>
+                                                    <source src="{{ asset($item->image) }}" type="video/mp4">
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                            @else
+                                                <a target="_blank" href="{{ url($item->image) }}"><img
+                                                        src="{{ asset($item->image) }}" width="220px" alt=""></a>
+                                            @endif
                                         @endif
                                     </td>
                                     <td>
