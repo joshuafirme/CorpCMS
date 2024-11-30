@@ -19359,7 +19359,7 @@ video {
 @media (max-width: 575.98px) {
   .splide__slide img {
     height: 250px !important;
-    background-color: #000 !important;
+    object-fit: contain !important;
   }
 
   .image-title {
@@ -19376,7 +19376,7 @@ video {
 @media (min-width: 768px) and (max-width: 991.98px) {
   .splide__slide img {
     height: 300px !important;
-    background-color: #000 !important;
+    object-fit: contain !important;
   }
   .image-title {
     font-size: 20px !important;

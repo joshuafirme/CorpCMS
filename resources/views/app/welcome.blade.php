@@ -33,8 +33,8 @@
                                         Your browser does not support the video tag.
                                     </video>
                                 @else
-                                <img src="{{ $item->image }}" style="object-fit: cover; height: 300px;" class="card-img-top"
-                                    alt="News Image">
+                                    <img src="{{ $item->image }}" style="object-fit: cover; height: 300px;"
+                                        class="card-img-top" alt="News Image">
                                 @endif
                             @endif
                             <div class="card-body">
@@ -99,6 +99,14 @@
             </svg>
         </div>
     </section>
+@endsection
+
+@section('styles')
+    <style>
+        .splide__slide img {
+            background-color: {{ settings()->primary_color }} !important;
+        }
+    </style>
 @endsection
 
 @section('scripts')
