@@ -55,7 +55,7 @@ class SettingsController extends Controller
         $data['twitter'] = $request->twitter ? $request->twitter : '';
 
         $data['tiktok'] = $request->tiktok ? $request->tiktok : '';
-
+        return $data;
         Storage::put($this->path, json_encode($data));
 
         return redirect()->back()->with('success', 'Setting was successfully saved.');
