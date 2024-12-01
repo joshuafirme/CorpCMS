@@ -18,9 +18,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicon/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-16x16.png') }}">
-    <link rel="icon" type="image/x-icon" sizes="16x16"
-        href="{{ asset('favicon/favicon.ico?v=' . date('YmdHi')) }}">
-    <link rel="manifest" href="{{ asset('favicon/manifest.json') }}">
+    {{-- <link rel="icon" type="image/x-icon" sizes="16x16"
+        href="{{ asset('favicon/favicon.ico?v=' . date('YmdHi')) }}"> --}}
+    {{-- <link rel="manifest" href="{{ asset('favicon/manifest.json') }}"> --}}
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <script type="application/ld+json">

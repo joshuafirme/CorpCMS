@@ -19364,7 +19364,7 @@ video {
 .gallery-item img {
   transition: transform 0.3s ease;
   width: 100%;
-  height: auto;
+  height: 300px;
   object-fit: cover;
 }
 
@@ -19387,6 +19387,8 @@ video {
 .gallery-item:hover .caption {
   opacity: 1;
 }
+
+
 
 /* Extra small devices (phones, less than 576px) */
 @media (max-width: 575.98px) {
