@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContactUsMessage;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Slider;
@@ -29,6 +30,13 @@ class PageController extends Controller
         $news = Post::where('slug', $slug)->first();
 
         return view('app.news-info', compact('news'));
+    }
+
+    public function gallery()
+    {
+        $gallery = Gallery::where('status', 1)->get();
+
+        return view('app.gallery', compact('gallery'));
     }
 
     public function contact()

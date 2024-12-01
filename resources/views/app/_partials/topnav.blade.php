@@ -14,6 +14,7 @@
             <ul class="navbar-nav ms-auto me-lg-5">
                 <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('news') }}">News</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('gallery') }}">Gallery</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('about-us') }}">About us</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('contact-us') }}">Contact us</a></li>
             </ul>

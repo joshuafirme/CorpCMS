@@ -1,6 +1,6 @@
 @extends('admin._partials.app')
 @php
-    $title = 'System Users';
+    $title = 'Gallery';
 @endphp
 @section('title', $title)
 
@@ -12,14 +12,14 @@
                     <div class="col-auto mb-3">
                         <h1 class="page-header-title">
                             <div class="page-header-icon"><i data-feather="user"></i></div>
-                            {{ $title }} List
+                            {{ $title }}
                         </h1>
                     </div>
                     <div class="col-12 col-xl-auto mb-3">
-                        <a class="btn btn-sm btn-light text-primar3 btn-edit" href="#" data-bs-toggle="modal"
+                        <a class="btn btn-sm btn-light text-primary" href="#" data-bs-toggle="modal"
                             data-bs-target="#updateModal">
                             <i class="me-1" data-feather="user-plus"></i>
-                            Add New {{ $title }}
+                            Add photo
                         </a>
                     </div>
                 </div>
@@ -31,59 +31,40 @@
     <div class="container-fluid px-4">
         <div class="card">
             <div class="card-body">
-                <div class="row">
-                    <form action="{{ url('/users') }}" method="get" class="mt-2 ml-auto col-md-4" autocomplete="off"
-                        style="margin-left: auto">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control input-search" name="key"
-                                placeholder="Search by name, or email"
-                                value="{{ isset($_GET['key']) ? $_GET['key'] : '' }}">
-                            <button class="btn btn-primary" type="submit" type="button" id="button-addon2"><i
-                                    class="fa fa-search"></i></button>
-                        </div>
-                    </form>
-                </div>
                 <table id="datatablesSimple" class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Status</th>
+                            <th>Title</th>
+                            <th>Image</th>
+                            <th>Link</th>
                             <th>Action</th>
                         </tr>
                     </thead>
-                    @if (count($users) > 15)
-                        <tfoot>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot>
-                    @endif
                     <tbody>
-                        @if (count($users) > 0)
-                            @foreach ($users as $item)
+                        @if (count($data) > 0)
+                            @foreach ($data as $item)
                                 <tr id="{{ $item->id }}">
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->email }}</td>
-                                    <td>{{ $item->role }}</td>
+                                    <td>{{ $item->title }}</td>
+                                    <td>
+                                        @if ($item->image)
+                                            <a target="_blank" href="{{ url($item->image) }}"><img
+                                                    src="{{ asset($item->image) }}" width="150px" alt=""></a>
+                                        @endif
+                                    </td>
                                     <td>
                                         @if ($item->status == 1)
                                             <span class="badge bg-green-soft text-green">Active</span>
                                         @elseif ($item->status == 0)
                                             <span class="badge bg-red-soft text-red">Inactive</span>
                                         @endif
-                                    </td>
+                                    </td>                                    
                                     <td>
                                         <a class="btn btn-datatable btn-icon btn-transparent-dark me-2 btn-edit"
                                             data-item="{{ $item }}" data-bs-toggle="modal"
                                             data-bs-target="#updateModal">
                                             <i class="fa fa-edit"></i>
                                         </a>
+
                                         <a class="btn btn-datatable btn-icon btn-transparent-dark me-2 btn-delete"
                                             data-id="{{ $item->id }}">
                                             <i class="fa-regular fa-trash-can"></i>
@@ -94,24 +75,27 @@
                         @else
                             <tr>
                                 <td colspan="12">
-                                    <div class="alert alert-warning"><small>No users found.</small></div>
+                                    <div class="alert alert-warning"><small>No data found.</small></div>
                                 </td>
                             </tr>
                         @endif
 
                     </tbody>
                 </table>
+                @php
+                    echo $data->links('pagination::bootstrap-4');
+                @endphp
             </div>
-
         </div>
-        @php
-            echo $users->appends(request()->query())->links('pagination::bootstrap-4');
-        @endphp
     </div>
-    </div>
-    @include('admin.users.modals')
+    @include('admin.gallery.modals')
 @endsection
 
 @section('scripts')
-    @include('admin.users.script')
+    <script src="{{ asset('js/custom/helper.js') }}"></script>
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.2.0/classic/ckeditor.js"></script>
+
+    @include('admin.gallery.script')
+
 @endsection

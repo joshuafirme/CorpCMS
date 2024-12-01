@@ -35,13 +35,13 @@
     }
 
     .btn-primary:hover {
-        background-color: #0056b3 !important;
-        border-color: #004085 !important;
+        background-color: {{ $primary_color }} !important;
+        border-color: {{ $primary_color }} !important;
     }
 
     .btn-secondary:hover {
-        background-color: #5a6268 !important;
-        border-color: #545b62 !important;
+        background-color: #{{ $secondary_color }} !important;
+        border-color: #{{ $secondary_color }} !important;
     }
 
     /* Navbar and Nav Link Colors */
@@ -128,6 +128,7 @@
     .active {
         color: {{ $primary_color }} !important;
     }
+
     .nav-link:hover {
         color: {{ $primary_color }} !important;
     }
@@ -268,6 +269,11 @@
 
     a.text-secondary:hover {
         color: #4a5459 !important;
+    }
+
+    .nav-link-icon,
+    .card-title a {
+        color: {{ $primary_color }} !important;
     }
 
 

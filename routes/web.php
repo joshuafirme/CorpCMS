@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\PageContentController;
 use App\Http\Controllers\Admin\PostController;
@@ -40,6 +41,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::resource('sliders', SliderController::class);
         Route::post('sliders/update/{id}', [SliderController::class, 'update']);
 
+        Route::resource('gallery', GalleryController::class);
+        Route::post('gallery/update/{id}', [GalleryController::class, 'update']);
+
         Route::resource('settings', SettingsController::class);
         Route::post('settings/update/{id}', [SettingsController::class, 'update']);
 
@@ -58,6 +62,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
 Route::get('/', [PageController::class, 'index']);
 Route::get('news', [PageController::class, 'news']);
 Route::get('news/{slug}', [PageController::class, 'newsInfo']);
+Route::get('gallery', [PageController::class, 'gallery']);
 Route::get('contact-us', [PageController::class, 'contact']);
 Route::post('contact-us', [PageController::class, 'sendMessage']);
 Route::get('about-us', [PageController::class, 'about']);

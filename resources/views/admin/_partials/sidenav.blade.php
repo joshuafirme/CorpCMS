@@ -25,6 +25,11 @@
                     Sliders
                 </a>
 
+                <a class="nav-link" href="{{ url('admin/gallery') }}">
+                    <div class="nav-link-icon"><i class="fa-solid fa-images"></i></div>
+                    Gallery
+                </a>
+
                 <a class="nav-link" href="{{ url('admin/messages') }}">
                     <div class="nav-link-icon"><i class="fa-regular fa-message"></i></div>
                     Messages
