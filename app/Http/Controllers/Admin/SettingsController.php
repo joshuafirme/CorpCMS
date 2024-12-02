@@ -36,8 +36,8 @@ class SettingsController extends Controller
 
         if ($request->logo) {
             $data['logo'] = Utils::uploadFile($request->logo, 'uploads/settings/');
-            $this->generateFavicon($data['logo']);
         }
+        $this->generateFavicon($data['logo']);
 
         $data['app_name'] = $request->app_name ? $request->app_name : '';
 
