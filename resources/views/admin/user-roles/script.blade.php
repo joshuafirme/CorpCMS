@@ -54,7 +54,7 @@
                     $('#chkbx-' + permissions[i].replace(/\s/g, '')).prop('checked', true);
                 }
 
-                let parent_checkboxes = ['maintenance', 'administration','service_categories', 'user_management'];
+                let parent_checkboxes = ['maintenance', 'administration','pages'];
                 let checked_counter = 0;
 
                 for (let el of parent_checkboxes) {
