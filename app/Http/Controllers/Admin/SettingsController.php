@@ -36,6 +36,7 @@ class SettingsController extends Controller
 
         if ($request->logo) {
             $data['logo'] = Utils::uploadFile($request->logo, 'uploads/settings/');
+            $this->generateFavicon($data['logo']);
         }
 
         $data['app_name'] = $request->app_name ? $request->app_name : '';
@@ -45,7 +46,7 @@ class SettingsController extends Controller
         $data['secondary_color'] = $request->secondary_color ? $request->secondary_color : '';
 
         $data['meta_description'] = $request->meta_description ? $request->meta_description : '';
-        
+
         $data['facebook'] = $request->facebook ? $request->facebook : '';
 
         $data['instagram'] = $request->instagram ? $request->instagram : '';
@@ -59,5 +60,20 @@ class SettingsController extends Controller
         Storage::put($this->path, json_encode($data));
 
         return redirect()->back()->with('success', 'Setting was successfully saved.');
+    }
+
+    function generateFavicon($source)
+    {
+        $destination = public_path('favicon.ico');
+
+        $sizes = [
+            [16, 16],
+            [24, 24],
+            [32, 32],
+            [48, 48],
+        ];
+
+        $ico_lib = new \PHP_ICO($source, $sizes);
+        $ico_lib->save_ico($destination);
     }
 }
