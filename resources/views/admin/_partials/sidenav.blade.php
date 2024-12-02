@@ -15,45 +15,68 @@
                     </a>
                 @endif --}}
 
-                <a class="nav-link" href="{{ url('admin/news') }}">
-                    <div class="nav-link-icon"><i class="fa-regular fa-newspaper"></i></div>
-                    News
-                </a>
+                @if (in_array('news', $permissions))
+                    <a class="nav-link" href="{{ url('admin/news') }}">
+                        <div class="nav-link-icon"><i class="fa-regular fa-newspaper"></i></div>
+                        News
+                    </a>
+                @endif
+                @if (in_array('sliders', $permissions))
+                    <a class="nav-link" href="{{ url('admin/sliders') }}">
+                        <div class="nav-link-icon"><i class="fa-solid fa-sliders"></i></div>
+                        Sliders
+                    </a>
+                @endif
+                @if (in_array('gallery', $permissions))
+                    <a class="nav-link" href="{{ url('admin/gallery') }}">
+                        <div class="nav-link-icon"><i class="fa-solid fa-images"></i></div>
+                        Gallery
+                    </a>
+                @endif
+                @if (in_array('messages', $permissions))
+                    <a class="nav-link" href="{{ url('admin/messages') }}">
+                        <div class="nav-link-icon"><i class="fa-regular fa-message"></i></div>
+                        Messages
+                    </a>
+                @endif
+                @php
+                    $pages_modules = ['about_us', 'contact_us', 'privacy_policy', 'terms_of_service'];
+                @endphp
+                @if (array_intersect($pages_modules, $permissions))
+                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                        data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                        <div class="nav-link-icon"><i class="fa-solid fa-pager"></i></div>
+                        Pages
+                        <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapsePages" data-bs-parent="#accordionSidenav">
+                        <nav class="sidenav-menu-nested nav">
+                            @if (in_array('about_us', $permissions))
+                                <a class="nav-link" href="{{ url('admin/page-content/about-us') }}">About us</a>
+                            @endif
+                            @if (in_array('contact_us', $permissions))
+                                <a class="nav-link" href="{{ url('admin/page-content/contact-us') }}">Contact us</a>
+                            @endif
+                            @if (in_array('privacy_policy', $permissions))
+                                <a class="nav-link" href="{{ url('admin/page-content/privacy-policy') }}">Privacy
+                                    policy</a>
+                            @endif
+                            @if (in_array('terms_of_service', $permissions))
+                                <a class="nav-link" href="{{ url('admin/page-content/terms-of-service') }}">Terms of
+                                    service</a>
+                            @endif
+                        </nav>
+                    </div>
+                @endif
 
-                <a class="nav-link" href="{{ url('admin/sliders') }}">
-                    <div class="nav-link-icon"><i class="fa-solid fa-sliders"></i></div>
-                    Sliders
-                </a>
 
-                <a class="nav-link" href="{{ url('admin/gallery') }}">
-                    <div class="nav-link-icon"><i class="fa-solid fa-images"></i></div>
-                    Gallery
-                </a>
 
-                <a class="nav-link" href="{{ url('admin/messages') }}">
-                    <div class="nav-link-icon"><i class="fa-regular fa-message"></i></div>
-                    Messages
-                </a>
-
-                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
-                    data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                    <div class="nav-link-icon"><i class="fa-solid fa-pager"></i></div>
-                    Pages
-                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="collapsePages" data-bs-parent="#accordionSidenav">
-                    <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ url("admin/page-content/about-us") }}">About us</a>
-                        <a class="nav-link" href="{{ url('admin/page-content/contact-us') }}">Contact us</a>
-                        <a class="nav-link" href="{{ url('admin/page-content/privacy-policy') }}">Privacy policy</a>
-                        <a class="nav-link" href="{{ url('admin/page-content/terms-of-service') }}">Terms of service</a>
-                    </nav>
-                </div>
-
-                <a class="nav-link" href="{{ url('admin/settings') }}">
-                    <div class="nav-link-icon"><i class="fa-solid fa-gear"></i></div>
-                    General Settings
-                </a>
+                @if (in_array('general_settings', $permissions))
+                    <a class="nav-link" href="{{ url('admin/settings') }}">
+                        <div class="nav-link-icon"><i class="fa-solid fa-gear"></i></div>
+                        General Settings
+                    </a>
+                @endif
 
                 @php
                     $administration_modules = ['users', 'roles'];

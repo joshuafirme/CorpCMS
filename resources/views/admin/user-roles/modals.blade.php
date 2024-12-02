@@ -30,35 +30,19 @@
                         </div>
                     </div>
                     <hr>
-                     
+
                     <div class="ic_parent_permission">
                         <div class="row my-2">
                             <div class="col-8 pt-1">
                                 <div class="custom-control">
                                     <label for="customCheck-1">
-                                        <strong>Dashboard</strong></label>
+                                        <strong>News</strong></label>
                                 </div>
                             </div>
                             <div class="col-4 pt-1">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="permissions[]" value="dashboard"
-                                        class="ic-parent-permission" id="chkbx-dashboard" ref="1">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr> <div class="ic_parent_permission">
-                        <div class="row my-2">
-                            <div class="col-8 pt-1">
-                                <div class="custom-control">
-                                    <label for="customCheck-1">
-                                        <strong>Service requests</strong></label>
-                                </div>
-                            </div>
-                            <div class="col-4 pt-1">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="permissions[]" value="service_requests"
-                                        class="ic-parent-permission" id="chkbx-service_requests" ref="1">
+                                    <input type="checkbox" name="permissions[]" value="news"
+                                        class="ic-parent-permission" id="chkbx-news" ref="1">
                                 </div>
                             </div>
                         </div>
@@ -68,14 +52,65 @@
                         <div class="row my-2">
                             <div class="col-8 pt-1">
                                 <div class="custom-control">
-                                    <label><strong>User Management
+                                    <label for="customCheck-1">
+                                        <strong>Sliders</strong></label>
+                                </div>
+                            </div>
+                            <div class="col-4 pt-1">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="permissions[]" value="sliders"
+                                        class="ic-parent-permission" id="chkbx-sliders" ref="1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="ic_parent_permission">
+                        <div class="row my-2">
+                            <div class="col-8 pt-1">
+                                <div class="custom-control">
+                                    <label for="customCheck-1">
+                                        <strong>Gallery</strong></label>
+                                </div>
+                            </div>
+                            <div class="col-4 pt-1">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="permissions[]" value="gallery"
+                                        class="ic-parent-permission" id="chkbx-gallery" ref="1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="ic_parent_permission">
+                        <div class="row my-2">
+                            <div class="col-8 pt-1">
+                                <div class="custom-control">
+                                    <label for="customCheck-1">
+                                        <strong>Messages</strong></label>
+                                </div>
+                            </div>
+                            <div class="col-4 pt-1">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="permissions[]" value="messages"
+                                        class="ic-parent-permission" id="chkbx-messages" ref="1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="ic_parent_permission">
+                        <div class="row my-2">
+                            <div class="col-8 pt-1">
+                                <div class="custom-control">
+                                    <label><strong>Pages
                                         </strong></label>
                                 </div>
                             </div>
                             <div class="col-4 pt-1">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="ic-parent-permission" value="user_management"
-                                        id="chkbx-all-user_management">
+                                    <input type="checkbox" class="ic-parent-permission" value="pages"
+                                        id="chkbx-all-pages">
                                 </div>
                             </div>
                         </div>
@@ -84,13 +119,13 @@
                         <div class="row">
                             <div class="col-8 pt-1">
                                 <div class="custom-control">
-                                    <label>Customers</label>
+                                    <label>About us</label>
                                 </div>
                             </div>
                             <div class="col-4 pt-1">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="permissions[]" id="chkbx-customers" value="customers"
-                                        class="parent-identy-user_management">
+                                    <input type="checkbox" name="permissions[]" id="chkbx-about_us" value="about_us"
+                                        class="parent-identy-pages">
                                 </div>
                             </div>
                         </div>
@@ -99,83 +134,67 @@
                         <div class="row">
                             <div class="col-8 pt-1">
                                 <div class="custom-control">
-                                    <label>Service providers</label>
+                                    <label>Contact us</label>
                                 </div>
                             </div>
                             <div class="col-4 pt-1">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="permissions[]" id="chkbx-service_providers" value="service_providers"
-                                        class="parent-identy-user_management">
+                                    <input type="checkbox" name="permissions[]" id="chkbx-contact_us" value="contact_us"
+                                        class="parent-identy-pages">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <div class="col-8 pt-1">
+                                <div class="custom-control">
+                                    <label>Privacy policy</label>
+                                </div>
+                            </div>
+                            <div class="col-4 pt-1">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="permissions[]" id="chkbx-privacy_policy" value="privacy_policy"
+                                        class="parent-identy-pages">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <div class="col-8 pt-1">
+                                <div class="custom-control">
+                                    <label>Terms of service</label>
+                                </div>
+                            </div>
+                            <div class="col-4 pt-1">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="permissions[]" id="chkbx-terms_of_service" value="terms_of_service"
+                                        class="parent-identy-pages">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <hr>
-                    <div class="ic_parent_permission">
-                        <div class="row my-2">
-                            <div class="col-8 pt-1">
-                                <div class="custom-control">
-                                    <label><strong>Service Categories
-                                        </strong></label>
-                                </div>
-                            </div>
-                            <div class="col-4 pt-1">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="ic-parent-permission" value="service_categories"
-                                        id="chkbx-all-service_categories">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="row">
-                            <div class="col-8 pt-1">
-                                <div class="custom-control">
-                                    <label>Categories</label>
-                                </div>
-                            </div>
-                            <div class="col-4 pt-1">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="permissions[]" id="chkbx-service_categories" value="service_categories"
-                                        class="parent-identy-service_categories">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="row">
-                            <div class="col-8 pt-1">
-                                <div class="custom-control">
-                                    <label>Subcategories</label>
-                                </div>
-                            </div>
-                            <div class="col-4 pt-1">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="permissions[]" id="chkbx-service_subcategories" value="service_subcategories"
-                                        class="parent-identy-service_categories">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>              
+                   
                     <div class="ic_parent_permission">
                         <div class="row my-2">
                             <div class="col-8 pt-1">
                                 <div class="custom-control">
                                     <label for="customCheck-1">
-                                        <strong>Operational Areas</strong></label>
+                                        <strong>General settings</strong></label>
                                 </div>
                             </div>
                             <div class="col-4 pt-1">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="permissions[]" value="operational_areas"
-                                        class="ic-parent-permission" id="chkbx-operational_areas" ref="1">
+                                    <input type="checkbox" name="permissions[]" value="general_settings"
+                                        class="ic-parent-permission" id="chkbx-general_settings" ref="1">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <hr>
-                    
+
                     <div class="ic_parent_permission">
                         <div class="row my-2">
                             <div class="col-8 pt-1">
@@ -223,9 +242,9 @@
                         </div>
                     </div>
 
-                   
-                    
-                 
+
+
+
                 </div>
             </div>
             <div class="modal-footer">
