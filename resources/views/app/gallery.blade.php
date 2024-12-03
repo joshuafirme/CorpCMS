@@ -5,7 +5,7 @@
         <div class="container py-5">
             <h2 class="text-center mb-5 text-primary">Gallery</h2>
             <div class="row  g-4" data-aos="fade-up" data-aos-delay="100">
-                @foreach ($gallery as $item)
+                @foreach ($gallery as $key => $item)
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                         <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#imageModal"
                             data-bs-image="{{ $item->image }}">

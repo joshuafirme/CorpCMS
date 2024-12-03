@@ -6,7 +6,7 @@
             <h2 class="text-center mb-5 text-primary">About Us</h2>
             <div class="text-center">
                 @if (isset($data->cover_img) && isset($data->show_cover_img) && $data->show_cover_img == 'on')
-                    <img src="{{ asset($data->cover_img) }}" alt="" class="img-fluid"
+                    <img src="{{ asset($data->cover_img) }}" alt="" class="img-fluid" alt="Banner"
                         style="object-fit: cover; height:400px;">
                 @endif
             </div>

@@ -7,9 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="{{ $settings->meta_description }}" />
+
+    <meta property="og:title" content="{{ $settings->app_name }}">
+    <meta property="og:description" content="{{ $settings->meta_description }}">
+    <meta property="og:image" content="https://kamalayanpartylist.org/storage/uploads/img/sliders/Website%20Banner%201_674d4f796c678.png">
+    <meta property="og:url" content="https://your-website.com">
+
+    <meta name="twitter:title" content="{{ $settings->app_name }}">
+    <meta name="twitter:description" content="{{ $settings->meta_description }}">
+    <meta name="twitter:url" content="https://kamalayanpartylist.org/storage/uploads/img/sliders/Website%20Banner%201_674d4f796c678.png">
+    <meta name="twitter:card" content="summary">
+
     <meta name="author" content="" />
     <title>@yield('title', $settings->app_name)</title>
-    <meta content="{{ $settings->app_name }}, Party-list, Latest news, News, About us, Contact us" name="keywords">
+    <meta
+        content="{{ $settings->app_name }}, Party-list, Latest news, News, inclusive governance, community empowerment, sustainable development, Filipino advocacy, political party Philippines, progressive solutions, social change, community programs, public service, leadership Philippines, grassroots initiatives, national development, advocacy Philippines, empowering communities"
+        name="keywords">
 
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
     <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">

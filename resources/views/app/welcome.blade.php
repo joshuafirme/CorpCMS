@@ -8,7 +8,7 @@
             <ul class="splide__list">
                 @foreach ($sliders as $slider)
                     <li class="splide__slide">
-                        <img style="width: 100%;height: 600px; object-fit: cover;" src="{{ asset($slider->image) }}">
+                        <img style="width: 100%;height: 600px; object-fit: cover;" src="{{ asset($slider->image) }}" alt="{{ $slider->title }}">
                         <div class="image-title">{{ $slider->title }}</div>
                     </li>
                 @endforeach
@@ -18,7 +18,7 @@
 
     <section class="bg-white py-5">
         <div class="container py-5">
-            <h2 class="text-center mb-5 text-primary">Latest News</h2>
+            <h1 class="text-center mb-5 text-primary">Latest News</h1>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
                 @foreach ($news as $item)
                     <div class="col">
@@ -34,7 +34,7 @@
                                     </video>
                                 @else
                                     <img src="{{ $item->image }}" style="object-fit: cover; height: 300px;"
-                                        class="card-img-top" alt="News Image">
+                                        class="card-img-top" alt="{{ $item->title }}">
                                 @endif
                             @endif
                             <div class="card-body">
