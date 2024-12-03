@@ -10,12 +10,12 @@
 
     <meta property="og:title" content="{{ $settings->app_name }}">
     <meta property="og:description" content="{{ $settings->meta_description }}">
-    <meta property="og:image" content="https://kamalayanpartylist.org/storage/uploads/img/sliders/Website%20Banner%201_674d4f796c678.png">
-    <meta property="og:url" content="https://your-website.com">
+    <meta property="og:image" content="https://www.kamalayanpartylist.org/storage/uploads/img/sliders/Website%20Banner%201_674d4f796c678.png">
+    <meta property="og:url" content="https://www.kamalayanpartylist.org/">
 
     <meta name="twitter:title" content="{{ $settings->app_name }}">
     <meta name="twitter:description" content="{{ $settings->meta_description }}">
-    <meta name="twitter:url" content="https://kamalayanpartylist.org/storage/uploads/img/sliders/Website%20Banner%201_674d4f796c678.png">
+    <meta name="twitter:url" content="https://www.kamalayanpartylist.org/storage/uploads/img/sliders/Website%20Banner%201_674d4f796c678.png">
     <meta name="twitter:card" content="summary">
 
     <meta name="author" content="" />
