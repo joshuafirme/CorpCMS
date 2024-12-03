@@ -38,8 +38,8 @@
                                 @endif
                             @endif
                             <div class="card-body">
-                                <h3 class="card-title mt-0"><a href="{{ url("news/$item->slug") }}">{{ $item->title }}</a>
-                                </h3>
+                                <h2 class="card-title mt-0"><a href="{{ url("news/$item->slug") }}">{{ $item->title }}</a>
+                                </h2>
                                 <p class="text-muted mb-2"><small>Published on:
                                         {{ Utils::formatDate($item->date_published) }}</small></p>
                                 <div class="lh-lg">{!! strlen($item->content) > 200 ? substr($item->content, 0, 199) . '...' : $item->content !!}</div>

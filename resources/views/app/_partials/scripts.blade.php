@@ -11,7 +11,7 @@
 <script src="{{ asset('js/custom/helper.js') }}"></script>
 
 <script src="{{ asset('libs/js/sweetalert2.min.js') }}"></script>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="{{ asset('libs/js/aos.js') }}"></script>
 <script>
     AOS.init({
         disable: 'mobile',
@@ -19,11 +19,5 @@
         once: true,
     });
 </script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"
-    integrity="sha512-zlWWyZq71UMApAjih4WkaRpikgY9Bz1oXIW5G0fED4vk14JjGlQ1UmkGM392jEULP8jbNMiwLWdM8Z87Hu88Fw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 
 {{-- <script src="{{ asset('js/custom/onboarding.js'></script> --}}

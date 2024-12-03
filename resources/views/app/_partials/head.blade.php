@@ -10,12 +10,14 @@
 
     <meta property="og:title" content="{{ $settings->app_name }}">
     <meta property="og:description" content="{{ $settings->meta_description }}">
-    <meta property="og:image" content="https://www.kamalayanpartylist.org/storage/uploads/img/sliders/Website%20Banner%201_674d4f796c678.png">
+    <meta property="og:image"
+        content="https://www.kamalayanpartylist.org/storage/uploads/img/sliders/Website%20Banner%201_674d4f796c678.png">
     <meta property="og:url" content="https://www.kamalayanpartylist.org/">
 
     <meta name="twitter:title" content="{{ $settings->app_name }}">
     <meta name="twitter:description" content="{{ $settings->meta_description }}">
-    <meta name="twitter:url" content="https://www.kamalayanpartylist.org/storage/uploads/img/sliders/Website%20Banner%201_674d4f796c678.png">
+    <meta name="twitter:url"
+        content="https://www.kamalayanpartylist.org/storage/uploads/img/sliders/Website%20Banner%201_674d4f796c678.png">
     <meta name="twitter:card" content="summary">
 
     <meta name="author" content="" />
@@ -47,18 +49,17 @@
             },
         }
     </script>
-    <link href="{{ asset('css/styles.css?v=' . date('YmdHi')) }}" rel="stylesheet" />
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <script data-search-pseudo-elements="" defer=""
-        src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js" crossorigin="anonymous">
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css"
-        integrity="sha512-8D+M+7Y6jVsEa7RD6Kv/Z7EImSpNpQllgaEIQAtqHcI0H6F4iZknRj0Nx1DCdB+TwBaS+702BGWYC0Ze2hpExQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link href="{{ asset('css/styles.css?v=10') }}" rel="stylesheet" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link rel="stylesheet" href="{{ asset('libs/css/aos.css') }}">
+
+    <script data-search-pseudo-elements="" defer="" src="{{ asset('libs/js/font-awesome-6.4.0.js') }}"
+        crossorigin="anonymous"></script>
+
+    <script data-search-pseudo-elements="" defer="" rel="stylesheet" src="{{ asset('libs/js/feather.min.js') }}"></script>
+
+    <link rel="stylesheet" href="{{ asset('libs/css/splide.min.css') }}">
 
     @yield('styles')
 
