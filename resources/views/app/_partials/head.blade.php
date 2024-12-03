@@ -6,10 +6,9 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
+    <meta name="description" content="{{ $settings->meta_description }}" />
     <meta name="author" content="" />
     <title>@yield('title', $settings->app_name)</title>
-    <meta content={{ $settings->meta_description }} name="description">
     <meta content="{{ $settings->app_name }}, Party-list, Latest news, News, About us, Contact us" name="keywords">
 
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
