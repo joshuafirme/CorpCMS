@@ -1,6 +1,0 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{HTTP_HOST} !^www.kamalayanpartylist.org$ [NC]
-    RewriteRule ^(.*)$ https://www.kamalayanpartylist.org/$1 [L,R=301]
-    RewriteRule ^(.*)$ public/$1 [L]
-</IfModule>
