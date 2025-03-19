@@ -20,6 +20,20 @@ class SettingsController extends Controller
             $data = json_decode($data);
         }
 
+        $info['app_name'] = isset($data->app_name) ? $data->app_name : '[app_name]';
+        $info['app_version'] = isset($data->app_version) ? $data->app_version : '1.0';
+        $info['logo'] = isset($data->logo) ? $data->logo : 'assets/img/favicon.png';
+        $info['primary_color'] = isset($data->primary_color) ? $data->primary_color : '';
+        $info['secondary_color'] = isset($data->secondary_color) ? $data->secondary_color : '';
+        $info['meta_description'] = isset($data->meta_description) ? $data->meta_description : '';
+        $info['facebook'] = isset($data->facebook) ? $data->facebook : '';
+        $info['instagram'] = isset($data->instagram) ? $data->instagram : '';
+        $info['linkedin'] = isset($data->linkedin) ? $data->linkedin : '';
+        $info['twitter'] = isset($data->twitter) ? $data->twitter : '';
+        $info['tiktok'] = isset($data->tiktok) ? $data->tiktok : '';
+
+        $data = Utils::arrayToObject($info);
+
         return view('admin.settings.main', compact('data'));
     }
 
@@ -33,29 +47,15 @@ class SettingsController extends Controller
             $data = json_decode($data, true);
         }
 
+        if ($request->app_version ) {
+            $data['app_version'] = $request->app_version;
+        }
 
         if ($request->logo) {
             $data['logo'] = Utils::uploadFile($request->logo, 'uploads/settings/');
         }
+
         $this->generateFavicon($data['logo']);
-
-        $data['app_name'] = $request->app_name ? $request->app_name : '';
-
-        $data['primary_color'] = $request->primary_color ? $request->primary_color : '';
-
-        $data['secondary_color'] = $request->secondary_color ? $request->secondary_color : '';
-
-        $data['meta_description'] = $request->meta_description ? $request->meta_description : '';
-
-        $data['facebook'] = $request->facebook ? $request->facebook : '';
-
-        $data['instagram'] = $request->instagram ? $request->instagram : '';
-
-        $data['linkedin'] = $request->linkedin ? $request->linkedin : '';
-
-        $data['twitter'] = $request->twitter ? $request->twitter : '';
-
-        $data['tiktok'] = $request->tiktok ? $request->tiktok : '';
 
         Storage::put($this->path, json_encode($data));
 

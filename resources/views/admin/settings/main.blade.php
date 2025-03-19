@@ -58,6 +58,11 @@
                                         value="{{ $data ? $data->app_name : '' }}" required>
                                 </div>
                                 <div class="col-md-4 b-3">
+                                    <label class="form-label small">App version</label>
+                                    <input type="number" step="0.1" class="form-control" name="app_version"
+                                        value="{{ $data ? $data->app_version : '' }}" required>
+                                </div>
+                                <div class="col-md-4 b-3">
                                     <label class="form-label small">Meta description</label>
                                     <textarea rows="4" type="text" class="form-control" name="meta_description">{{ isset($data->meta_description) ? $data->meta_description : '' }}</textarea>
                                 </div>

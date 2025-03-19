@@ -10,14 +10,10 @@
 
     <meta property="og:title" content="{{ $settings->app_name }}">
     <meta property="og:description" content="{{ $settings->meta_description }}">
-    <meta property="og:image"
-        content="https://www.kamalayanpartylist.org/storage/uploads/img/sliders/Website%20Banner%201_674d4f796c678.png">
     <meta property="og:url" content="https://www.kamalayanpartylist.org/">
 
     <meta name="twitter:title" content="{{ $settings->app_name }}">
     <meta name="twitter:description" content="{{ $settings->meta_description }}">
-    <meta name="twitter:url"
-        content="https://www.kamalayanpartylist.org/storage/uploads/img/sliders/Website%20Banner%201_674d4f796c678.png">
     <meta name="twitter:card" content="summary">
 
     <meta name="author" content="" />
@@ -26,12 +22,12 @@
         content="{{ $settings->app_name }}, Party-list, Latest news, News, inclusive governance, community empowerment, sustainable development, Filipino advocacy, political party Philippines, progressive solutions, social change, community programs, public service, leadership Philippines, grassroots initiatives, national development, advocacy Philippines, empowering communities"
         name="keywords">
 
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon.ico') }}">
-    <link rel="icon" type="image/png" sizes="24x24" href="{{ asset('favicon.ico') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon.ico') }}">
-    <link rel="icon" type="image/png" sizes="48x48" href="{{ asset('favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset("favicon.ico?v=$settings->app_version") }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset("favicon.ico?v=$settings->app_version") }}" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset("favicon.ico?v=$settings->app_version") }}">
+    <link rel="icon" type="image/png" sizes="24x24" href="{{ asset("favicon.ico?v=$settings->app_version") }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset("favicon.ico?v=$settings->app_version") }}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ asset("favicon.ico?v=$settings->app_version") }}">
 
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
@@ -39,18 +35,18 @@
         {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": {{ $settings->app_name }},
+            "name": "{{ $settings->app_name }}",
             "url": "{{ env('APP_URL') }}",
-            "description": {{ $settings->meta_description }},
+            "description": "{{ $settings->meta_description }}",
             "publisher": {
               "@type": "Organization",
-              "name": {{ $settings->app_name }},
+              "name": "{{ $settings->app_name }}",
               "url": "{{ env('APP_URL') }}",
             },
         }
     </script>
 
-    <link href="{{ asset('css/styles.css?v=10') }}" rel="stylesheet" />
+    <link href="{{ asset("css/styles.css?v=$settings->app_version") }}" rel="stylesheet" />
 
     <link rel="stylesheet" href="{{ asset('libs/css/aos.css') }}">
 
