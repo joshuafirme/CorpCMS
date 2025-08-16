@@ -37,6 +37,11 @@
                         <input type="text" class="form-control" name="title"
                             value="{{ isset($page->title) ? $page->title : '' }}">
                     </div>
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label small">Slug</label>
+                        <input type="text" class="form-control" name="slug"
+                            value="{{ isset($page->slug) ? $page->slug : '' }}">
+                    </div>
 
                     @if ($type == 'home')
                         <div class="col-md-12 mb-3">
