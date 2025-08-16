@@ -129,7 +129,7 @@ class PageContentController extends Controller
         if ($request->cover_img) {
             $page->cover_img = Utils::uploadFile($request->cover_img, 'uploads/page-contents/');
         }
-
+        return $page->cover_img;
         if ($request->content) {
             $data['content'] = $request->content;
         }
