@@ -29,16 +29,42 @@
                     enctype="multipart/form-data">
                     @csrf
 
+                    <input type="hidden" name="slug" value="{{ $type }}">
 
 
-                    @if ($type == 'about-us')
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label small">Title</label>
+                        <input type="text" class="form-control" name="title"
+                            value="{{ isset($page->title) ? $page->title : '' }}">
+                    </div>
+
+                    @if ($type == 'home')
                         <div class="col-md-12 mb-3">
                             <label for="formFile" class="form-label small">Cover image</label>
                             <input class="form-control file-upload" name="cover_img" type="file" id="formFile"
                                 accept="image/png, image/gif, image/jpeg">
                             <div class="overflow-auto img-container mt-2">
                                 @php
-                                    $cover_img = $data && isset($data->cover_img) ? $data->cover_img : '';
+                                    $cover_img = $page && isset($page->cover_img) ? $page->cover_img : '';
+                                @endphp
+                                @if ($cover_img)
+                                    <img width="100%" class="img-preview" id="cover_img" src="{{ asset($cover_img) }}"
+                                        style="max-width: 250px; object-fit: cover;" />
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label small">Content</label>
+                            <textarea class="form-control" id="editor" name="content" rows="10">{{ isset($page->content) ? $page->content : '' }}</textarea>
+                        </div>
+                    @elseif ($type == 'about-us')
+                        <div class="col-md-12 mb-3">
+                            <label for="formFile" class="form-label small">Cover image</label>
+                            <input class="form-control file-upload" name="cover_img" type="file" id="formFile"
+                                accept="image/png, image/gif, image/jpeg">
+                            <div class="overflow-auto img-container mt-2">
+                                @php
+                                    $cover_img = $page && isset($page->cover_img) ? $page->cover_img : '';
                                 @endphp
                                 @if ($cover_img)
                                     <img width="100%" class="img-preview" id="cover_img" src="{{ asset($cover_img) }}"
@@ -51,45 +77,108 @@
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch" name="show_cover_img"
                                     id="show_cover_img"
-                                    {{ isset($data->show_cover_img) && $data->show_cover_img == 'on' ? 'checked' : '' }}>
+                                    {{ isset($page->show_cover_img) && $page->show_cover_img == 'on' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="show_cover_img">Show cover image</label>
                             </div>
                         </div>
 
                         <div class="col-md-12 mb-3">
                             <label class="form-label small">Content</label>
-                            <textarea class="form-control" id="editor" name="content" rows="10">{{ isset($data->content) ? $data->content : '' }}</textarea>
+                            <textarea class="form-control" id="editor" name="content" rows="10">{{ isset($page->content) ? $page->content : '' }}</textarea>
                         </div>
-                    @endif
-
-                    @if ($type == 'contact-us')
+                    @elseif ($type == 'contact-us')
                         <div class="col-md-12 mb-3">
                             <label class="form-label small">Content</label>
-                            <textarea class="form-control" id="editor" name="content" rows="10">{{ isset($data->content) ? $data->content : '' }}</textarea>
+                            <textarea class="form-control" id="editor" name="content" rows="10">{{ isset($page->content) ? $page->content : '' }}</textarea>
                         </div>
                         <div class="col-md-12 mb-3">
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch" name="show_content"
                                     id="show_content"
-                                    {{ isset($data->show_content) && $data->show_content == 'on' ? 'checked' : '' }}>
+                                    {{ isset($page->show_content) && $page->show_content == 'on' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="show_content">Show content</label>
                             </div>
                         </div>
+
+                        <div class="col-md-12 mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" name="page_status"
+                                    id="page_status"
+                                    {{ isset($page->page_status) && $page->page_status == 'on' ? 'checked' : '' }}>
+                                <label class="form-check-label" for="page_status">Published</label>
+                            </div>
+                        </div>
+
                         <div class="col-md-12 mb-3">
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch" name="show_contact_form"
                                     id="show_contact_form"
-                                    {{ isset($data->show_contact_form) && $data->show_contact_form == 'on' ? 'checked' : '' }}>
+                                    {{ isset($page->show_contact_form) && $page->show_contact_form == 'on' ? 'checked' : '' }}>
                                 <label class="form-check-label" for="show_contact_form">Show contact form</label>
                             </div>
                         </div>
-                    @endif
-                    @if ($type == 'privacy-policy' || $type == 'terms-of-service')
+                    @elseif ($type == 'privacy-policy' || $type == 'terms-of-service')
                         <div class="col-md-12 mb-3">
                             <label class="form-label small">Content</label>
-                            <textarea class="form-control" id="editor" name="content" rows="10">{{ isset($data->content) ? $data->content : '' }}</textarea>
+                            <textarea class="form-control" id="editor" name="content" rows="10">{{ isset($page->content) ? $page->content : '' }}</textarea>
+                        </div>
+                    @else
+                        <div class="col-md-12 mb-3">
+                            <label for="formFile" class="form-label small">Cover image</label>
+                            <input class="form-control file-upload" name="cover_img" type="file" id="formFile"
+                                accept="image/png, image/gif, image/jpeg">
+                            <div class="overflow-auto img-container mt-2">
+                                @php
+                                    $cover_img = $page && isset($page->cover_img) ? $page->cover_img : '';
+                                @endphp
+                                @if ($cover_img)
+                                    <img width="100%" class="img-preview" id="cover_img"
+                                        src="{{ asset($cover_img) }}" style="max-width: 250px; object-fit: cover;" />
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label small">Content</label>
+                            <textarea class="form-control" id="editor" name="content" rows="10">{{ isset($page->content) ? $page->content : '' }}</textarea>
+                        </div>
+
+                        {{-- <div class="col-md-12 mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" name="show_contact_form"
+                                    id="show_contact_form"
+                                    {{ isset($page->show_contact_form) && $page->show_contact_form == 'on' ? 'checked' : '' }}>
+                                <label class="form-check-label" for="show_contact_form">Show contact
+                                    form</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" name="show_content"
+                                    id="show_content"
+                                    {{ isset($page->show_content) && $page->show_content == 'on' ? 'checked' : '' }}>
+                                <label class="form-check-label" for="show_content">Show content</label>
+                            </div>
+                        </div> --}}
+                        <div class="col-md-6 mb-3">
+                            <label for="slug" class="form-label">Order</label>
+                            <input type="number" name="order" class="form-control" min="1" step="1" value="{{ $page->order }}">
+                        </div>
+
+
+                        <div class="col-md-12 mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" name="page_status"
+                                    id="page_status"
+                                    {{ isset($page->is_published) && $page->is_published ? 'checked' : '' }}>
+                                <label class="form-check-label" for="page_status">Published
+                                    {{ $page->is_published }}</label>
+                            </div>
                         </div>
                     @endif
+
+
                     <div class="col-md-12 mt-3">
                         <button type="submit" class="btn btn-primary">Save</button>
                     </div>

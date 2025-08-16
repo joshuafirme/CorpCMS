@@ -1,49 +1,109 @@
 @extends('app._partials.app')
 
 @section('content')
-    {{-- @include('app._partials.hero-banner') --}}
+
+    <style>
+        .slide-image-wrapper {
+            position: relative;
+            height: 60vh;
+            /* reduced from 80vh */
+            overflow: hidden;
+        }
+
+        .slide-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-title {
+            position: absolute;
+            bottom: 20px;
+            left: 30px;
+            color: white;
+            font-size: 1.8rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+    </style>
 
     <section class="splide" aria-label="Splide Basic HTML Example">
         <div class="splide__track">
             <ul class="splide__list">
                 @foreach ($sliders as $slider)
                     <li class="splide__slide">
-                        <img style="width: 100%;height: 600px; object-fit: cover;" src="{{ asset($slider->image) }}" alt="{{ $slider->title }}">
-                        <div class="image-title">{{ $slider->title }}</div>
+                        <div class="slide-image-wrapper">
+                            <img src="{{ asset($slider->image) }}" alt="Slide" />
+                            <div class="image-title">{{ $slider->title }}</div>
+                        </div>
                     </li>
                 @endforeach
             </ul>
         </div>
     </section>
 
-    <section class="bg-white py-5">
-        <div class="container py-5">
-            <h1 class="text-center mb-5 text-primary">Latest News</h1>
+
+    {{-- BOOK INTRO SECTION --}}
+
+
+    <section class="bg-light py-5">
+        <div class="container px-4 px-md-5">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    @if (isset($data->content))
+                        <div class="mt-3 lh-lg">
+                            {!! $data->content !!}
+                        </div>
+                    @endif
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="{{ $data->cover_img }}" alt="Coach Xavier and team" class="img-fluid rounded shadow-sm"
+                        style="max-height: 360px; object-fit: cover; width: 100%;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    {{-- BLOG LISTING SECTION --}}
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-dark mb-4">Latest Articles</h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                @foreach ($news as $item)
+                @foreach ($articles as $item)
                     <div class="col">
-                        <div class="card h-100 shadow-sm">
+                        <div class="card h-100 shadow-sm border-0">
+                            {{-- Preserve image or video --}}
                             @if ($item->image)
-                                @php
-                                    $mime = mime_content_type($item->image);
-                                @endphp
-                                @if (str_contains($mime, 'video/'))
-                                    <video class="card-img-top" width="100%" height="300px" controls>
-                                        <source src="{{ asset($item->image) }}" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                @else
-                                    <img src="{{ $item->image }}" style="object-fit: cover; height: 300px;"
-                                        class="card-img-top" alt="{{ $item->title }}">
+
+                                @if ($item->image)
+                                    @php
+                                        $cover_img = $item && isset($item->image) ? $item->image : '';
+                                    @endphp
+                                    @if ($cover_img)
+                                        <img width="100%" class="card-img-top" id="cover_img"  src="{{ asset('storage/' . $cover_img) }}"
+                                            style="height: 250px; object-fit: cover;" />
+                                    @endif
                                 @endif
                             @endif
-                            <div class="card-body">
-                                <h2 class="card-title mt-0"><a href="{{ url("news/$item->slug") }}">{{ $item->title }}</a>
-                                </h2>
-                                <p class="text-muted mb-2"><small>Published on:
-                                        {{ Utils::formatDate($item->date_published) }}</small></p>
-                                <div class="lh-lg">{!! strlen($item->content) > 200 ? substr($item->content, 0, 199) . '...' : $item->content !!}</div>
-                                <a href="{{ url("news/$item->slug") }}" class="btn btn-primary">Read More</a>
+
+                            <div class="card-body d-flex flex-column">
+                                <h3 class="card-title">
+                                    <a href="{{ url("article/$item->slug") }}" class="text-dark text-decoration-none">
+                                        {{ $item->title }}
+                                    </a>
+                                </h3>
+                                <p class="text-muted small mb-2">
+                                    Published on {{ Utils::formatDate($item->created_at) }}
+                                </p>
+                                <p class="card-text">
+                                    {!! strlen($item->content) > 200 ? substr($item->content, 0, 199) . '...' : $item->content !!}
+                                </p>
+                                <div class="mt-auto">
+                                    <a href="{{ url("article/$item->slug") }}" class="text-primary fw-bold">Read More →</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,54 +112,24 @@
         </div>
     </section>
 
-    <section class="bg-white py-5">
-        <div class="svg-border-waves text-primary">
-            <!-- Wave SVG Border-->
-            <svg class="wave" style="pointer-events: none" fill="currentColor" preserveAspectRatio="none"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 75">
-                <defs>
-                    <style>
-                        .a {
-                            fill: none;
-                        }
 
-                        .b {
-                            clip-path: url(#a);
-                        }
 
-                        .d {
-                            opacity: 0.5;
-                            isolation: isolate;
-                        }
-                    </style>
-                </defs>
-                <clipPath id="a">
-                    <rect class="a" width="1920" height="75"></rect>
-                </clipPath>
-                <g class="b">
-                    <path class="c"
-                        d="M1963,327H-105V65A2647.49,2647.49,0,0,1,431,19c217.7,3.5,239.6,30.8,470,36,297.3,6.7,367.5-36.2,642-28a2511.41,2511.41,0,0,1,420,48">
-                    </path>
-                </g>
-                <g class="b">
-                    <path class="d"
-                        d="M-127,404H1963V44c-140.1-28-343.3-46.7-566,22-75.5,23.3-118.5,45.9-162,64-48.6,20.2-404.7,128-784,0C355.2,97.7,341.6,78.3,235,50,86.6,10.6-41.8,6.9-127,10">
-                    </path>
-                </g>
-                <g class="b">
-                    <path class="d"
-                        d="M1979,462-155,446V106C251.8,20.2,576.6,15.9,805,30c167.4,10.3,322.3,32.9,680,56,207,13.4,378,20.3,494,24">
-                    </path>
-                </g>
-                <g class="b">
-                    <path class="d"
-                        d="M1998,484H-243V100c445.8,26.8,794.2-4.1,1035-39,141-20.4,231.1-40.1,378-45,349.6-11.6,636.7,73.8,828,150">
-                    </path>
-                </g>
-            </svg>
+    {{-- NEWSLETTER SECTION --}}
+    <section id="newsletter" class="bg-white py-5 border-top">
+        <div class="container text-center">
+            <h2 class="fw-bold">Join the Newsletter</h2>
+            <p class="text-muted">Get fresh blog updates every week. No spam. Just value.</p>
+            <form action="/subscribe" method="post"
+                class="d-flex flex-column flex-md-row justify-content-center gap-2 mt-3">
+                <input type="email" name="email" class="form-control w-100 w-md-auto" placeholder="you@example.com"
+                    required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
         </div>
     </section>
 @endsection
+
+
 
 @section('styles')
     <style>

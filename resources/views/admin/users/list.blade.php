@@ -31,19 +31,7 @@
     <div class="container-fluid px-4">
         <div class="card">
             <div class="card-body">
-                <div class="row">
-                    <form action="{{ url('/users') }}" method="get" class="mt-2 ml-auto col-md-4" autocomplete="off"
-                        style="margin-left: auto">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control input-search" name="key"
-                                placeholder="Search by name, or email"
-                                value="{{ isset($_GET['key']) ? $_GET['key'] : '' }}">
-                            <button class="btn btn-primary" type="submit" type="button" id="button-addon2"><i
-                                    class="fa fa-search"></i></button>
-                        </div>
-                    </form>
-                </div>
-                <table id="datatablesSimple" class="table table-bordered table-hover">
+                <table id="productTable" class="table table-hover table-bordered align-middle">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -114,4 +102,23 @@
 
 @section('scripts')
     @include('admin.users.script')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#productTable').DataTable({
+                pageLength: 10,
+                order: [
+                    [0, 'desc']
+                ],
+                responsive: true,
+                language: {
+                    search: "_INPUT_",
+                    searchPlaceholder: "Search products..."
+                }
+            });
+        })
+    </script>
 @endsection

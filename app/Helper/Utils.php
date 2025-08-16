@@ -1,12 +1,17 @@
 <?php
+
 namespace App\Helper;
-use DateTime;
-use App\Models\MaintenanceModule;
+
+use DB;
 use File;
 use Http;
+use DateTime;
+use App\Models\Page;
+use App\Models\Article;
+use Illuminate\Support\Str;
+use App\Models\MaintenanceModule;
 use Illuminate\Support\Facades\Storage;
 use PhpOffice\PhpSpreadsheet\Shared\Date as ExcelDate;
-use DB;
 
 class Utils
 {
@@ -86,7 +91,6 @@ class Utils
         $server_output = curl_exec($ch);
         curl_close($ch);
         return $server_output;
-
     }
 
     static function curlGet($url, $headers = [], $access_token = '')
@@ -379,8 +383,6 @@ class Utils
             } else {
                 dd("Uploaded file is not valid.");
             }
-
-
         }
         return $path;
     }
@@ -756,22 +758,22 @@ class Utils
                 font-size: 20px; font-style:bold;
                 margin-bottom: 5px;
             }
-            .logo { 
+            .logo {
                 object-fit: cover;
                 position: absolute;
                 right: 0;
                 top: 1px;
             }
-            .serial-number { 
+            .serial-number {
                 font-style: bold;
                 font-size: 24px;
                 position: absolute;
                 right: 13px;
                 top: 58px;
-                color: #FF0000; 
+                color: #FF0000;
             }
-            .text-info { 
-                margin-top: 3px; 
+            .text-info {
+                margin-top: 3px;
                 font-size: 12px;
             }
             .mb-1 { margin-bottom:10px; }
@@ -814,5 +816,39 @@ class Utils
             }
         </style>";
     }
+
+    public static function getNavPages()
+    {
+        return Page::where("is_published",1)->OrderBy("order","asc")->get();
+
+        // $path = 'page-content/';
+        // $pageStatuses = [];
+
+        // if (Storage::exists($path)) {
+        //     $files = Storage::files($path); // Non-recursive
+
+        //     foreach ($files as $file) {
+        //         if (Str::endsWith($file, '.json')) {
+        //             $content = Storage::get($file);
+        //             $decoded = json_decode($content, true);
+
+        //             $filename = basename($file); // just the file name, not full path
+
+        //             if (json_last_error() === JSON_ERROR_NONE) {
+        //                 $pageStatuses[$filename] = $decoded['page_status'] ?? false;
+        //             } else {
+        //                 $pageStatuses[$filename] = false;
+        //             }
+        //         }
+        //     }
+        // }
+
+        // return json_decode( json_encode($pageStatuses),true);
+    }
+
+    public function sliders(){
+
+        return Article::limit(3)->get();
+
+    }
 }
-?>
