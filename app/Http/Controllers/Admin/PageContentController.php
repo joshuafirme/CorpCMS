@@ -107,7 +107,7 @@ class PageContentController extends Controller
     }
 
     public function updateContent(Request $request, $type)
-    {return $request;
+    {
         $data = $request->except(['_token']);
 
         $path = "page-content/$type.json";
